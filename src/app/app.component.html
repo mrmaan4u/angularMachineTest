@@ -1,0 +1,44 @@
+<div class="filter-wrapper">
+  <div>
+    <label for="search">Search Properties</label>
+    <input type="text" id="search" name="search" [(ngModel)]="search">
+  </div>
+  <div>
+    <label for="minPriceFilter">Minimum Price</label>
+    <input type="text" name="minPriceFilter" id="minPriceFilter" (keyup)="minTypeFilter()" [(ngModel)]="minPriceFilter">
+  </div>
+  <div>
+    <select (change)="selectUpdate()" name="configFilter" id="configFilter" multiple [(ngModel)]="selectedConfigValue">
+      <option value="" disabled>Select Multiple Configuration</option>
+      <option *ngFor="let configValue of filterConfig" [value]="configValue.configurationName">
+        {{configValue.configurationName}}</option>
+    </select>
+  </div>
+</div>
+
+<table id="propData">
+  <tr>
+    <th name="name" (click)="sortProperties($event)">Name</th>
+    <th name="buildingName" (click)="sortProperties($event)">Building Name</th>
+    <th name="towerName" (click)="sortProperties($event)">Tower Name</th>
+    <th name="propertyType" (click)="sortProperties($event)">Property Type</th>
+    <th name="configurationName" (click)="sortProperties($event)">Configuration Name</th>
+    <th name="minPrice" (click)="sortProperties($event)">Min Price</th>
+    <th name="bedroom" (click)="sortProperties($event)">Bedroom</th>
+    <th name="bathroom" (click)="sortProperties($event)">Bathroom</th>
+    <th name="halfBathroom" (click)="sortProperties($event)">Half Bathroom</th>
+  </tr>
+  <tr
+    *ngFor="let property of (properties | async ) | searchFilter:search: ['minPrice','bedroom','bathroom','halfBthroom']">
+    <td>{{property.name}}</td>
+    <td>{{property.buildingName}}</td>
+    <td>{{property.towerName}}</td>
+    <td>{{property.propertyType}}</td>
+    <td>{{property.configurationName}}</td>
+    <td>{{property.minPrice}}</td>
+    <td>{{property.bedroom}}</td>
+    <td>{{property.bathroom}}</td>
+    <td>{{property.halfBathroom}}</td>
+
+  </tr>
+</table>

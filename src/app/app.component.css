@@ -1,0 +1,36 @@
+body {
+    padding: 0 2%;
+    box-sizing: border-box;
+}
+
+.filter-wrapper div {
+    text-align: center;
+    margin-bottom: 0.7em;
+}
+
+.filter-wrapper label {
+    margin-right: 0.5em;
+}
+
+#propData {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #propData td, #propData th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #propData tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #propData tr:hover {background-color: #ddd;}
+  
+  #propData th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+  }
